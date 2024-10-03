@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cockroach ant and general pest control</title>
+  
+  <style>
+    /* CSS Styles */
+ /* CSS Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Booking for Cockroach, ant and general Pest Control</h2>
+    <form id="bookingForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+      </div>
+      <div class="form-group" style="display: flex; align-items: center;">
+        <label for="date" style="flex:1px;">Preferred Date:</label>
+        <input type="date" id="date" name="date" required style="flex: 2.2;">
+      </div>
+      <div class="form-group" style="display: flex; align-items: center;">
+        <label for="time" style="flex:1px;">Preferred Time:</label>
+        <input type="time" id="time" name="time" required style="flex:2.2;">
+      </div>
+      <div class="form-group">
+        <label for="Address">Address:</label>
+        <textarea id="Address" name="description" rows="5" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+      </div>
+      <div class="form-group" style="text-align: center;">
+        <input type="submit" value="Submit">
+      </div>
+    </div>
+</form>
+</div>
+
+<script>
+// JavaScript code to handle form submission
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form from submitting
+
+  // Retrieve form values
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+  var date = document.getElementById("date").value;
+  var time = document.getElementById("time").value;
+  var description = document.getElementById("description").value;
+
+  // You can perform additional validation here before sending the data to the server
+
+  // Create a data object to send to the server
+  var data = {
+    name: name,
+    email: email,
+    phone: phone,
+    date: date,
+    time: time,
+    description: description
+  };
+
+  // Send the data to the server using AJAX or fetch
+  // Example using fetch:
+  fetch("booking.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(function(response) {
+    if (name && email && phone && date && time && description) {
+      // Redirect to tender.html
+      window.location.href = 'tender.html';
+    } else {
+      alert('Please fill in all details.');
+    }
+  })
+  .catch(function(error) {
+    // Error occurred while sending the request
+    alert("An error occurred. Please try again later.");
+    console.error(error);
+  });
+});
+</script>
+</body>
+</html>
